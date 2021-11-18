@@ -7,6 +7,7 @@ public class MovementScript : MonoBehaviour
 
     private CharacterController Controller;
     private Vector3 Movement;
+    public float speed;
     
 
     // Start is called before the first frame update
@@ -18,7 +19,8 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement = new Vector3(1, 1, 0);
-        Controller.Move(Movement);
+        Debug.Log(Input.GetAxis("Vertical") + " and " + Input.GetAxis("Horizontal"));
+        Movement = new Vector3(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed, 0);
+        Controller.Move(Movement * Time.deltaTime);
     }
 }
