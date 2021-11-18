@@ -13,6 +13,6 @@ public class testScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameObject.transform.localPosition);
+        //Debug.Log(gameObject.transform.localPosition);
     }
 }
