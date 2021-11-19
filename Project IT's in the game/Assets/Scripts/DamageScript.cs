@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DamageScript : MonoBehaviour
 {
+
+    public int health;
+    public Text txt;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +24,25 @@ public class DamageScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
 
-        Debug.Log(col.name);
+        //Debug.Log("hit by " + col.name);
         if(col.tag == "Bullet")
         {
-            
-            Debug.Log("HIT");
+            health -= 1;
+        }
+        if(col.tag == "Missle")
+        {
+            health -= 2;
+        }
+        if(col.tag == "Arena")
+        {
+            health -= 2;
+        }
+
+        txt.text = health.ToString();
+
+        if(health <= 0)
+        {
+            txt.text += " You died";
         }
     }
 }

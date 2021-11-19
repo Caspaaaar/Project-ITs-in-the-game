@@ -6,6 +6,8 @@ public class BulletScript : MonoBehaviour
 {
 
     public float speed;
+    public float life;
+    private float duration = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,21 @@ public class BulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position += transform.right * speed;
+        duration += Time.deltaTime;
+
+        gameObject.transform.position += transform.right * speed * Time.deltaTime;
+
+        if(duration > life)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }

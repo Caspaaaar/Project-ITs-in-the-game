@@ -9,6 +9,7 @@ public class MovementScript : MonoBehaviour
     private float x;
     private float y;
     public float speed;
+    public float floatiness;
     
 
     // Start is called before the first frame update
@@ -23,7 +24,8 @@ public class MovementScript : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
         movement = new Vector3(x, y, 0f);
-        if (movement.magnitude > 1f)
+        movement = movement * Mathf.Pow(movement.magnitude, floatiness);
+        if (movement.magnitude > 1)
         {
             movement = movement.normalized;
         }

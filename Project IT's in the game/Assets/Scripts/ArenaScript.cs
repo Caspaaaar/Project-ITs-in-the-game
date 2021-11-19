@@ -16,7 +16,7 @@ public class ArenaScript : MonoBehaviour
     // Update is called once per frame
     void OnTriggerExit2D(Collider2D col)
     {
-        if(col.gameObject == player)
+        if(col.tag == "Player")
         {
             player.transform.localPosition = new Vector3(0, 0, 0);
         }
