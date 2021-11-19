@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArenaScript : MonoBehaviour
+public class DamageScript : MonoBehaviour
 {
-
-    public GameObject player;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +11,19 @@ public class ArenaScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnTriggerExit2D(Collider2D col)
+    void Update()
     {
-        if(col.gameObject == player)
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+
+        Debug.Log(col.name);
+        if(col.tag == "Bullet")
         {
-            player.transform.localPosition = new Vector3(0, 0, 0);
+            
+            Debug.Log("HIT");
         }
     }
 }
