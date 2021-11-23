@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletSpawnerScript : MonoBehaviour
 {
@@ -12,11 +13,12 @@ public class BulletSpawnerScript : MonoBehaviour
     public float increaseTempo;
     private float duration;
     private float totalDuration;
+    public Text txt;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxOffset = Mathf.Sqrt(maxOffset);
     }
 
     // Update is called once per frame
@@ -32,7 +34,10 @@ public class BulletSpawnerScript : MonoBehaviour
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360.0f)));
 
 
-            Instantiate(bullet, (transform.right * -distance) + (transform.up * Random.Range(-maxOffset, maxOffset)), gameObject.transform.rotation);
+            Instantiate(bullet, (transform.right * -distance) + (transform.up * Random.Range(-maxOffset, maxOffset) * Random.Range(-maxOffset, maxOffset)), gameObject.transform.rotation);
         }
+
+
+        txt.text = Mathf.RoundToInt(totalDuration).ToString();
     }
 }

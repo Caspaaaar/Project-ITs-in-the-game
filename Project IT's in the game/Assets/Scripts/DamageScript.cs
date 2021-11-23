@@ -38,11 +38,17 @@ public class DamageScript : MonoBehaviour
             health -= 2;
         }
 
-        txt.text = health.ToString();
+        UpdateHud();
 
         if(health <= 0)
         {
             txt.text += " You died";
+            Destroy(gameObject);
         }
+    }
+
+    public void UpdateHud()
+    {
+        txt.text = health.ToString();
     }
 }
