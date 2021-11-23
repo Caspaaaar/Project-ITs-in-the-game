@@ -12,7 +12,7 @@ public class BulletSpawnerScript : MonoBehaviour
     public float maxOffset;
     public float increaseTempo;
     private float duration;
-    private float totalDuration;
+    public float totalDuration;
     public Text txt;
 
     // Start is called before the first frame update

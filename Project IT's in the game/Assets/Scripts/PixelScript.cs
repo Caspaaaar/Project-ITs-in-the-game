@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PixelScript : MonoBehaviour
 {
+
+    //https://www.youtube.com/watch?v=wHPo3vmoNi8
+
     public RenderTexture RenderTexture;
     public int pixelation;
 

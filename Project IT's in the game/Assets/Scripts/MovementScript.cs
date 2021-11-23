@@ -21,15 +21,29 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
-        movement = new Vector3(x, y, 0f);
-        movement = movement * Mathf.Pow(movement.magnitude, floatiness);
-        if (movement.magnitude > 1)
+        x = 0;
+        y = 0;
+        if (Input.GetKey("up") || Input.GetKey("w"))
         {
-            movement = movement.normalized;
+            y += 1;
         }
-        movement *= speed;
+        if (Input.GetKey("down") || Input.GetKey("s"))
+        {
+            y += -1;
+        }
+        if (Input.GetKey("left") || Input.GetKey("a"))
+        {
+            x += -1;
+        }
+        if (Input.GetKey("right") || Input.GetKey("d"))
+        {
+            x += 1;
+        }
+
+        movement = new Vector3(x, y, 0f);
+        movement = movement.normalized;
+        movement = movement * speed * Time.deltaTime;
+
         gameObject.transform.position += movement;
     }
 }

@@ -7,7 +7,13 @@ public class DamageScript : MonoBehaviour
 {
 
     public int health;
-    public Text txt;
+    public Text healthCounter;
+    public Text GameOverMessage;
+    public Text ScoreMessage;
+    public string gameOverMessage;
+    public string scoreMessage;
+
+    public BulletSpawnerScript spawnerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -42,13 +48,19 @@ public class DamageScript : MonoBehaviour
 
         if(health <= 0)
         {
-            txt.text += " You died";
+
+            GameOverMessage.text = gameOverMessage;
+            ScoreMessage.text = scoreMessage;
+            ScoreMessage.text += (Mathf.Round(spawnerScript.totalDuration*100)/100).ToString();
+
+            //animation here
+
             Destroy(gameObject);
         }
     }
 
     public void UpdateHud()
     {
-        txt.text = health.ToString();
+        healthCounter.text = health.ToString();
     }
 }
