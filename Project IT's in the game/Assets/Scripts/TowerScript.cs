@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class testScript : MonoBehaviour
+public class TowerScript : MonoBehaviour
 {
     public Vector3 Vertice1;
     public Vector3 Vertice2;
@@ -16,6 +16,9 @@ public class testScript : MonoBehaviour
     void Start()
     {
         mesh = new Mesh();
+        mesh = GetComponent<MeshFilter>().mesh = mesh;
+
+        mesh.MarkDynamic();
 
         Vector3[] vertices = new Vector3[4]
 {
@@ -25,7 +28,8 @@ public class testScript : MonoBehaviour
             Vertice4
         };
 
-        
+        mesh.Clear();
+
     }
 
     // Update is called once per frame
