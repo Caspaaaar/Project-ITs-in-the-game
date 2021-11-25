@@ -45,5 +45,6 @@ public class MovementScript : MonoBehaviour
         movement = movement * speed * Time.deltaTime;
 
         gameObject.transform.position += movement;
+
     }
 }

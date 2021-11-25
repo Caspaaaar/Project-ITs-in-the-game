@@ -16,6 +16,7 @@ public class KonamiScript : MonoBehaviour
     public float maxInterval;
     private string temp;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class KonamiScript : MonoBehaviour
             {
                 damageScript.health = 30;
                 damageScript.UpdateHud();
+                damageScript.cheats = true;
             }
 
             if (typedCode.Equals(otherCode))

@@ -8,7 +8,6 @@ public class BackgroundScript : MonoBehaviour
     private float duration;
     public float distance;
     public float speed;
-    private Vector3 vector;
 
     // Start is called before the first frame update
     void Start()
