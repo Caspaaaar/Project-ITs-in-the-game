@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class CoinSpawnerScript : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject coin;
     public float fireRate;
     public float maxDistance;
     public float minDistance;
     private float duration;
-    public float totalDuration;
     
 
 
@@ -22,7 +21,7 @@ public class CoinSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-      totalDuration += Time.deltaTime;
+      
         duration += (Time.deltaTime);
 
         if(duration > fireRate)
@@ -31,7 +30,7 @@ public class CoinSpawnerScript : MonoBehaviour
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360.0f)));
 
 
-            Instantiate(bullet, (transform.right * Random.Range(minDistance, maxDistance)), gameObject.transform.rotation);
+            Instantiate(coin, (transform.right * Random.Range(minDistance, maxDistance)), gameObject.transform.rotation);
         }
     }
 }

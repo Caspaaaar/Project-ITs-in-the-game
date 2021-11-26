@@ -6,14 +6,12 @@ using UnityEngine.UI;
 public class DamageScript : MonoBehaviour
 {
 
-    public int health;
     public Text GameOverText;
     public Text ScoreText;
     public string gameOverMessage;
     public string scoreMessage;
     public bool cheats = false;
 
-    public BulletSpawnerScript spawnerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -33,19 +31,19 @@ public class DamageScript : MonoBehaviour
         //Debug.Log("hit by " + col.name);
         if(col.tag == "Bullet")
         {
-            health -= 1;
+            ScoreManager.instance.health -= 1;
         }
         if(col.tag == "Missle")
         {
-            health -= 2;
+            ScoreManager.instance.health -= 2;
         }
         if(col.tag == "Arena")
         {
-            health -= 2;
+            ScoreManager.instance.health -= 2;
         }
 
 
-        if(health <= 0)
+        if(ScoreManager.instance.health <= 0)
         {
 
 
@@ -57,7 +55,7 @@ public class DamageScript : MonoBehaviour
 
 
             ScoreText.enabled = true;
-            ScoreText.text += (Mathf.Round(spawnerScript.totalDuration*100)/100).ToString();
+            ScoreText.text += (Mathf.Round(ScoreManager.instance.TotalTimer*10)/10).ToString();
 
             //animation here
 

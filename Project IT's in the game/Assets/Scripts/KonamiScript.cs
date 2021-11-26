@@ -9,12 +9,11 @@ public class KonamiScript : MonoBehaviour
     public DamageScript damageScript;
 
     public string konamiCode;
-    public string otherCode;
+    public string resetCode;
     private string typedCode;
 
     private float duration;
     public float maxInterval;
-    private string temp;
 
 
     // Start is called before the first frame update
@@ -38,11 +37,11 @@ public class KonamiScript : MonoBehaviour
 
             if (typedCode.Equals(konamiCode))
             {
-                damageScript.health = 30;
+                ScoreManager.instance.health = 30;
                 damageScript.cheats = true;
             }
 
-            if (typedCode.Equals(otherCode))
+            if (typedCode.Equals(resetCode))
             {
                 SceneManager.LoadScene("SampleScene");
             }

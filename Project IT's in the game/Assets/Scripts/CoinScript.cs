@@ -23,6 +23,7 @@ public class CoinScript : MonoBehaviour
             Destroy(gameObject);
             ScoreManager.instance.AddPoint();
 
+            //put animation here
         }
     }
 }

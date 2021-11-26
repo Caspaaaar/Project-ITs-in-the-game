@@ -13,25 +13,25 @@ public class HeartScript : MonoBehaviour
 
     void Update()
     {
-        if (DamageScript.health == 1)
+        if (ScoreManager.instance.health == 1)
         {
             heart1.GetComponent<Image>().enabled = true;
             heart2.GetComponent<Image>().enabled = false;
             heart3.GetComponent<Image>().enabled = false;
         }
-        else if (DamageScript.health == 2)
+        else if (ScoreManager.instance.health == 2)
         {
             heart1.GetComponent<Image>().enabled = true;
             heart2.GetComponent<Image>().enabled = true;
             heart3.GetComponent<Image>().enabled = false;
         }
-        else if (DamageScript.health >= 3)
+        else if (ScoreManager.instance.health >= 3)
         {
             heart1.GetComponent<Image>().enabled = true;
             heart2.GetComponent<Image>().enabled = true;
             heart3.GetComponent<Image>().enabled = true;
         }
-        else if (DamageScript.health <= 0)
+        else if (ScoreManager.instance.health <= 0)
         {
             heart1.GetComponent<Image>().enabled = false;
             heart2.GetComponent<Image>().enabled = false;

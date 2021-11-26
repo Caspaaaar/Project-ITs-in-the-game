@@ -20,7 +20,7 @@ public class CirkelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentScale = Mathf.Clamp(stepTime + maxGrootte - (BulletSpawnerScript.totalDuration * shrinkRate), minGrootte, maxGrootte);
+        currentScale = Mathf.Clamp(stepTime + maxGrootte - (ScoreManager.instance.TotalTimer * shrinkRate), minGrootte, maxGrootte);
         transform.localScale = new Vector3(currentScale, currentScale, 0);
     }
 }
