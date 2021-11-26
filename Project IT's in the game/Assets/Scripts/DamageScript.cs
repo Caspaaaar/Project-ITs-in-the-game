@@ -7,11 +7,11 @@ public class DamageScript : MonoBehaviour
 {
 
     public int health;
-    public Text healthCounter;
-    public Text GameOverMessage;
-    public Text ScoreMessage;
+    public Text GameOverText;
+    public Text ScoreText;
     public string gameOverMessage;
     public string scoreMessage;
+    public bool cheats = false;
 
     public BulletSpawnerScript spawnerScript;
 
@@ -44,14 +44,20 @@ public class DamageScript : MonoBehaviour
             health -= 2;
         }
 
-        UpdateHud();
 
         if(health <= 0)
         {
 
-            GameOverMessage.text = gameOverMessage;
-            ScoreMessage.text = scoreMessage;
-            ScoreMessage.text += (Mathf.Round(spawnerScript.totalDuration*100)/100).ToString();
+
+            GameOverText.enabled = true;
+            if (cheats)
+            {
+                GameOverText.text = "You filthy cheater!";
+            }
+
+
+            ScoreText.enabled = true;
+            ScoreText.text += (Mathf.Round(spawnerScript.totalDuration*100)/100).ToString();
 
             //animation here
 
@@ -59,8 +65,4 @@ public class DamageScript : MonoBehaviour
         }
     }
 
-    public void UpdateHud()
-    {
-        healthCounter.text = health.ToString();
-    }
 }
