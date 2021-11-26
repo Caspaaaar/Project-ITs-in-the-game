@@ -25,7 +25,7 @@ public class HeartScript : MonoBehaviour
             heart2.GetComponent<Image>().enabled = true;
             heart3.GetComponent<Image>().enabled = false;
         }
-        else if (DamageScript.health == 3)
+        else if (DamageScript.health >= 3)
         {
             heart1.GetComponent<Image>().enabled = true;
             heart2.GetComponent<Image>().enabled = true;
