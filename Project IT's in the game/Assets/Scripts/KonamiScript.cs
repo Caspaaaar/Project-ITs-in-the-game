@@ -39,7 +39,6 @@ public class KonamiScript : MonoBehaviour
             if (typedCode.Equals(konamiCode))
             {
                 damageScript.health = 30;
-                damageScript.UpdateHud();
                 damageScript.cheats = true;
             }
 

@@ -7,7 +7,6 @@ public class DamageScript : MonoBehaviour
 {
 
     public int health;
-    public Text healthCounter;
     public Text GameOverText;
     public Text ScoreText;
     public string gameOverMessage;
@@ -45,7 +44,6 @@ public class DamageScript : MonoBehaviour
             health -= 2;
         }
 
-        UpdateHud();
 
         if(health <= 0)
         {
@@ -67,8 +65,4 @@ public class DamageScript : MonoBehaviour
         }
     }
 
-    public void UpdateHud()
-    {
-        healthCounter.text = health.ToString();
-    }
 }
