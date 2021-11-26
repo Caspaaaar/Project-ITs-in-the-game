@@ -674,6 +674,7 @@ GameObject:
   - component: {fileID: 949589777}
   - component: {fileID: 949589774}
   - component: {fileID: 949589778}
+  - component: {fileID: 949589779}
   m_Layer: 0
   m_Name: Arena
   m_TagString: Arena
@@ -793,6 +794,23 @@ MonoBehaviour:
   konamiCode: wwssadad
   otherCode: fuck you
   maxInterval: 0.5
+--- !u!114 &949589779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949589773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b022b58283f8f949a264bbd7de9dced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletSpawnerScript: {fileID: 1380871478}
+  shrinkRate: 0.2
+  maxGrootte: 40
+  minGrootte: 15
+  stepTime: 10
 --- !u!1 &1104945100
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +960,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: dnboweojgh
+  m_Text: Fock jullie debiellen je gaat toch niet dood
 --- !u!222 &1137342825
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1122,11 +1140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2741479724082997846, guid: 382fa8e1188bc465c8bc29359d875e2c, type: 3}
-  fireRate: 10
+  fireRate: 15
   maxDistance: 9
   minDistance: 2
-  maxOffset: 0
-  increaseTempo: 15
   totalDuration: 0
 --- !u!1 &1876304125
 GameObject:

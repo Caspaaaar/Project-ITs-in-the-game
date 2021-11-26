@@ -8,8 +8,6 @@ public class CoinSpawnerScript : MonoBehaviour
     public float fireRate;
     public float maxDistance;
     public float minDistance;
-    public float maxOffset;
-    public float increaseTempo;
     private float duration;
     public float totalDuration;
     
@@ -18,14 +16,14 @@ public class CoinSpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxOffset = Mathf.Sqrt(maxOffset);
+       
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
       totalDuration += Time.deltaTime;
-        duration += (Time.deltaTime * (totalDuration/increaseTempo));
+        duration += (Time.deltaTime);
 
         if(duration > fireRate)
         {
