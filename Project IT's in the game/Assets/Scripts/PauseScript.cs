@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//https://www.youtube.com/watch?v=JivuXdrIHK0
 public class PauseScript : MonoBehaviour
 {
     public static bool GameIsPaused = false;
