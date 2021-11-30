@@ -30,7 +30,7 @@ public class CoinSpawnerScript : MonoBehaviour
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360.0f)));
 
 
-            Instantiate(coin, (transform.right * Random.Range(minDistance, maxDistance)), gameObject.transform.rotation);
+            Instantiate(coin, (transform.right * Random.Range(minDistance, maxDistance)), Quaternion.Euler(0,0,0));
         }
     }
 }
