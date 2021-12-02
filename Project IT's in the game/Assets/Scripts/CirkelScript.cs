@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CirkelScript : MonoBehaviour
 {
-    public BulletSpawnerScript BulletSpawnerScript;
     public float shrinkRate;
     public float maxGrootte;
     public float minGrootte;

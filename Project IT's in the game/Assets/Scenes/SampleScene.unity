@@ -1426,7 +1426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b022b58283f8f949a264bbd7de9dced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletSpawnerScript: {fileID: 1380871478}
   shrinkRate: 0.2
   maxGrootte: 40
   minGrootte: 15
@@ -1638,7 +1637,9 @@ MonoBehaviour:
   maxOffset: 8
   increaseTempo: 0.5
   currentPattern: 1
-  cooldown: 5
+  cooldown: 2
+  patternTime: 10
+  changeChance: 1
 --- !u!1 &1432907388
 GameObject:
   m_ObjectHideFlags: 0

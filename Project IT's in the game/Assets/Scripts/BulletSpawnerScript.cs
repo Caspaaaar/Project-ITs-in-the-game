@@ -14,15 +14,18 @@ public class BulletSpawnerScript : MonoBehaviour
     private float duration;
 
     public int currentPattern = 1;
-    private int newPattern = 1;
-    private int patterns = 2;
+    private readonly int patterns = 2;
     public float cooldown;
+    public float patternTime;
+    private float patternCount = 0;
+    public float changeChance;
 
     // Start is called before the first frame update
     void Start()
     {
         //dit is een deel van de berekening die zorgt dat de kogels meer langs het midden gaan
         maxOffset = Mathf.Sqrt(maxOffset);
+
     }
 
     // Update is called once per frame
@@ -35,8 +38,16 @@ public class BulletSpawnerScript : MonoBehaviour
         if(duration > fireRate)
         {
 
+
             //reset current timer
             duration = 0;
+
+            if (Mathf.Floor(ScoreManager.instance.TotalTimer / patternTime) > patternCount)
+            {
+                patternCount = patternCount + 1;
+                ChangePattern();
+            }
+
 
             switch (currentPattern)
             {
@@ -61,19 +72,22 @@ public class BulletSpawnerScript : MonoBehaviour
 
             
 
-
         }
 
     }
 
     void ChangePattern()
     {
-        while(newPattern == currentPattern)
+        if (Random.value <= changeChance)
         {
-            newPattern = Random.Range(1, patterns);
-        }
-        duration = -cooldown;
+            int temp = currentPattern;
+            while(currentPattern == temp)
+            {
+                currentPattern = Random.Range(1, patterns + 1);
+            }
 
-        Debug.Log(newPattern);
+            duration = -cooldown;
+            
+        }
     }
 }
