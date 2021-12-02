@@ -10,7 +10,6 @@ public class DamageScript : MonoBehaviour
     public Text ScoreText;
     public string gameOverMessage;
     public string scoreMessage;
-    public bool cheats = false;
     public GameOverScript gameOverScript;
 
 

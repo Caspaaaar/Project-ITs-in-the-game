@@ -7,6 +7,8 @@ public class GameOverScript : MonoBehaviour
 {
     public GameObject gameOverMenu;
     public Text scoreText;
+    public Text gameOverText;
+    public bool cheated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +23,20 @@ public class GameOverScript : MonoBehaviour
         if (ScoreManager.instance.health <= 0)
         {
             gameOverMenu.SetActive(true);
+
+            changeMessage();
             
             scoreText.text += (Mathf.Round(ScoreManager.instance.TotalTimer * 10) / 10).ToString();
+
+            //maybe play sound?
+        }
+    }
+
+    public void changeMessage()
+    {
+        if (cheated)
+        {
+            gameOverText.text = "Filthy Cheater!!!";
         }
     }
 }

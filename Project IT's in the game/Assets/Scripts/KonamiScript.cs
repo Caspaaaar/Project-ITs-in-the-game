@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class KonamiScript : MonoBehaviour
 {
 
-    public DamageScript damageScript;
+    public GameOverScript gameOverScript;
 
     public string konamiCode;
     public string resetCode;
@@ -38,7 +38,7 @@ public class KonamiScript : MonoBehaviour
             if (typedCode.Equals(konamiCode))
             {
                 ScoreManager.instance.health = 30;
-                damageScript.cheats = true;
+                gameOverScript.cheated = true;
             }
 
             if (typedCode.Equals(resetCode))

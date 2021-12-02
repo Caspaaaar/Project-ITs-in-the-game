@@ -1313,6 +1313,7 @@ GameObject:
   - component: {fileID: 935511969}
   - component: {fileID: 935511970}
   - component: {fileID: 935511971}
+  - component: {fileID: 935511972}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1469,6 +1470,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 810161481}
   scoreText: {fileID: 1757089052}
+  gameOverText: {fileID: 1137342824}
+  cheated: 0
+--- !u!114 &935511972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935511963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4109311995795a542a1b3676a4d62433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScript: {fileID: 935511971}
+  konamiCode: wwssadad
+  resetCode: qwerty
+  maxInterval: 0.5
 --- !u!1 &943671946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,7 +1575,6 @@ GameObject:
   - component: {fileID: 949589775}
   - component: {fileID: 949589777}
   - component: {fileID: 949589774}
-  - component: {fileID: 949589778}
   - component: {fileID: 949589779}
   m_Layer: 0
   m_Name: Arena
@@ -1661,22 +1679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2130472013}
---- !u!114 &949589778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949589773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4109311995795a542a1b3676a4d62433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageScript: {fileID: 2130472014}
-  konamiCode: wwssadad
-  resetCode: qwerty
-  maxInterval: 0.5
 --- !u!114 &949589779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3172,7 +3174,6 @@ MonoBehaviour:
   ScoreText: {fileID: 1757089052}
   gameOverMessage: Game over noob
   scoreMessage: 'Je score is '
-  cheats: 0
   gameOverScript: {fileID: 935511971}
 --- !u!212 &2130472015
 SpriteRenderer:
