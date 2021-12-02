@@ -5,12 +5,12 @@ using UnityEngine;
 public class PauseScript : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
+    
     public GameObject pauseMenuUI;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && ScoreManager.instance.health > 0)
         {
             if (GameIsPaused)
             {
