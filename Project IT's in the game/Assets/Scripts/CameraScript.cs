@@ -6,6 +6,8 @@ public class CameraScript : MonoBehaviour
 {
 
     public GameObject player;
+    public float Xparallax;
+    public float Yparallax;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class CameraScript : MonoBehaviour
     {
         try
         {
-            gameObject.transform.position = new Vector3(player.transform.position.x / 2, player.transform.position.y / 2, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(player.transform.position.x / Xparallax, player.transform.position.y / Yparallax, gameObject.transform.position.z);
         }
         catch
         {

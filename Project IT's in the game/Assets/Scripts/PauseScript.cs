@@ -55,4 +55,10 @@ public class PauseScript : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("GameScene");
+        Resume();
+    }
 }

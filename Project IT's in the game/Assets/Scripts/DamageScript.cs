@@ -11,6 +11,7 @@ public class DamageScript : MonoBehaviour
     public string gameOverMessage;
     public string scoreMessage;
     public bool cheats = false;
+    public GameOverScript gameOverScript;
 
 
     // Start is called before the first frame update
@@ -46,20 +47,11 @@ public class DamageScript : MonoBehaviour
         if(ScoreManager.instance.health <= 0)
         {
 
-
-            GameOverText.enabled = true;
-            if (cheats)
-            {
-                GameOverText.text = "You filthy cheater!";
-            }
-
-
-            ScoreText.enabled = true;
-            ScoreText.text += (Mathf.Round(ScoreManager.instance.TotalTimer*10)/10).ToString();
+            gameOverScript.GameOver();
 
             //animation here
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
