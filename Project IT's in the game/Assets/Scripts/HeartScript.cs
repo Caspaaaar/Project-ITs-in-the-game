@@ -10,6 +10,8 @@ public class HeartScript : MonoBehaviour
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+    public GameObject heart4;
+    public GameObject heart5;
 
     void Update()
     {
@@ -18,24 +20,48 @@ public class HeartScript : MonoBehaviour
             heart1.GetComponent<Image>().enabled = true;
             heart2.GetComponent<Image>().enabled = false;
             heart3.GetComponent<Image>().enabled = false;
+            heart4.GetComponent<Image>().enabled = false;
+            heart5.GetComponent<Image>().enabled = false;
         }
         else if (ScoreManager.instance.health == 2)
         {
             heart1.GetComponent<Image>().enabled = true;
             heart2.GetComponent<Image>().enabled = true;
             heart3.GetComponent<Image>().enabled = false;
+            heart4.GetComponent<Image>().enabled = false;
+            heart5.GetComponent<Image>().enabled = false;
         }
-        else if (ScoreManager.instance.health >= 3)
+        else if (ScoreManager.instance.health == 3)
         {
             heart1.GetComponent<Image>().enabled = true;
             heart2.GetComponent<Image>().enabled = true;
             heart3.GetComponent<Image>().enabled = true;
+            heart4.GetComponent<Image>().enabled = false;
+            heart5.GetComponent<Image>().enabled = false;
+        }
+        else if (ScoreManager.instance.health == 4)
+        {
+            heart1.GetComponent<Image>().enabled = true;
+            heart2.GetComponent<Image>().enabled = true;
+            heart3.GetComponent<Image>().enabled = true;
+            heart4.GetComponent<Image>().enabled = true;
+            heart5.GetComponent<Image>().enabled = false;
+        }
+        else if (ScoreManager.instance.health >= 5)
+        {
+            heart1.GetComponent<Image>().enabled = true;
+            heart2.GetComponent<Image>().enabled = true;
+            heart3.GetComponent<Image>().enabled = true;
+            heart4.GetComponent<Image>().enabled = true;
+            heart5.GetComponent<Image>().enabled = true;
         }
         else if (ScoreManager.instance.health <= 0)
         {
             heart1.GetComponent<Image>().enabled = false;
             heart2.GetComponent<Image>().enabled = false;
             heart3.GetComponent<Image>().enabled = false;
+            heart4.GetComponent<Image>().enabled = false;
+            heart5.GetComponent<Image>().enabled = false;
         }
     }
 }

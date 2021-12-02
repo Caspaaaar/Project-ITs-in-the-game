@@ -22,6 +22,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         scoreText.text = score.ToString() + " coins";
+        health = health + 2;
     }
 
     public void AddPoint() {
