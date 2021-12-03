@@ -21,7 +21,7 @@ public class CoinScript : MonoBehaviour
         if(col.tag == "Player")
         {
             Destroy(gameObject);
-            ScoreManager.instance.AddPoint();
+            ScoreManager.instance.AddCoin();
 
             //put animation here
         }

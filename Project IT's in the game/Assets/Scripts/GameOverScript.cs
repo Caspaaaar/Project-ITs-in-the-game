@@ -20,16 +20,15 @@ public class GameOverScript : MonoBehaviour
     public void GameOver()
     {
 
-        if (ScoreManager.instance.health <= 0)
-        {
-            gameOverMenu.SetActive(true);
+        gameOverMenu.SetActive(true);
+        
+        changeMessage();
+        
+        scoreText.text += (Mathf.Round(ScoreManager.instance.TotalTimer * 10) / 10).ToString();
 
-            changeMessage();
-            
-            scoreText.text += (Mathf.Round(ScoreManager.instance.TotalTimer * 10) / 10).ToString();
+        //maybe play sound?
 
-            //maybe play sound?
-        }
+        PlayerPrefs.SetInt("coins", ScoreManager.instance.coins);
     }
 
     public void changeMessage()
