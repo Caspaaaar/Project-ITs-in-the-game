@@ -41,13 +41,16 @@ public class TowerScript : MonoBehaviour
     {
 
 
+        //de face laat op het moment zn verkeerde kant zien waardoor hij doorzichtig is !!!
+
+
         shrinkage = (ScoreManager.instance.totalTimer * shrinkageModifier);
 
         //tower section
         vertices = new Vector3[] {
-            new Vector3(-ScoreManager.instance.arenaScale/2,0,0),
-            new Vector3(-ScoreManager.instance.arenaScale/2,10, 0),
-            new Vector3(ScoreManager.instance.arenaScale/2,10,0),
+            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2,0,0), new Vector3(0,0,0), new Vector3(0,0,30)),
+            new Vector3(-ScoreManager.instance.arenaScale/2,-shrinkage, 0),
+            new Vector3(ScoreManager.instance.arenaScale/2,-shrinkage,0),
             new Vector3(ScoreManager.instance.arenaScale/2,0,0)
         };
 
