@@ -25,7 +25,7 @@ public class GameOverScript : MonoBehaviour
 
         gameOverMenu.SetActive(true);
 
-        score = (Mathf.Round(ScoreManager.instance.TotalTimer * 10) / 10);
+        score = (Mathf.Round(ScoreManager.instance.totalTimer * 10) / 10);
 
         scoreText.text += score;
         if(score > PlayerPrefs.GetFloat("highscore") && !cheated)

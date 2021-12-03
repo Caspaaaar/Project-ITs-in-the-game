@@ -2,41 +2,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequireComponent(typeof(MeshFilter))]
+//[RequireComponent(typeof(MeshRenderer))]
+
 public class TowerScript : MonoBehaviour
 {
-    public Vector3 Vertice1;
-    public Vector3 Vertice2;
-    public Vector3 Vertice3;
-    public Vector3 Vertice4;
-    private Vector3[] Vertices;
-
     private Mesh mesh;
+    public Vector3[] vertices;
+    private int[] indeces;
+    private MeshFilter mf;
+    public GameObject towerBase;
+
+    public float shrinkageModifier;
+    private float shrinkage;
 
     // Start is called before the first frame update
     void Start()
     {
         mesh = new Mesh();
-        mesh = GetComponent<MeshFilter>().mesh = mesh;
+        mesh.name = "towerBase";
 
-        mesh.MarkDynamic();
-
-        Vector3[] vertices = new Vector3[4]
-{
-            Vertice1,
-            Vertice2,
-            Vertice3,
-            Vertice4
+        indeces = new int[] {
+            0, 1, 3,   1, 2, 3
         };
 
-        mesh.Clear();
+        mesh.vertices = vertices;
+        mesh.triangles = indeces;
+        mesh.MarkDynamic();
 
+        mf = GetComponent<MeshFilter>();
+        mf.sharedMesh = mesh;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        mesh.vertices = Vertices;
-        mesh.RecalculateNormals();
+
+
+        shrinkage = (ScoreManager.instance.totalTimer * shrinkageModifier);
+
+        //tower section
+        vertices = new Vector3[] {
+            new Vector3(-ScoreManager.instance.arenaScale/2,0,0),
+            new Vector3(-ScoreManager.instance.arenaScale/2,10, 0),
+            new Vector3(ScoreManager.instance.arenaScale/2,10,0),
+            new Vector3(ScoreManager.instance.arenaScale/2,0,0)
+        };
+
+        mesh.vertices = vertices;
+
         mesh.RecalculateBounds();
+        mesh.RecalculateNormals();
+        mesh.RecalculateTangents();
+
+        //tower base section
+        
+        towerBase.transform.localScale = new Vector3(ScoreManager.instance.arenaScale, ScoreManager.instance.arenaScale, 1);
+    }
+
+    public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
+    {
+        return Quaternion.Euler(angles) * (point - pivot) + pivot;
     }
 }

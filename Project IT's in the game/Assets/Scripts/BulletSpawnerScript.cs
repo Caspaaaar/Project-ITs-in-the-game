@@ -33,7 +33,7 @@ public class BulletSpawnerScript : MonoBehaviour
     {
 
         //tijd regeling
-        duration += (Time.deltaTime * (Mathf.Pow(ScoreManager.instance.TotalTimer, increaseTempo)));
+        duration += (Time.deltaTime * (Mathf.Pow(ScoreManager.instance.totalTimer, increaseTempo)));
 
         if(duration > fireRate)
         {
@@ -42,7 +42,7 @@ public class BulletSpawnerScript : MonoBehaviour
             //reset current timer
             duration = 0;
 
-            if (Mathf.Floor(ScoreManager.instance.TotalTimer / patternTime) > patternCount)
+            if (Mathf.Floor(ScoreManager.instance.totalTimer / patternTime) > patternCount)
             {
                 patternCount = patternCount + 1;
                 ChangePattern();
@@ -62,7 +62,7 @@ public class BulletSpawnerScript : MonoBehaviour
                     break;
                 case 2:
                     //make bullet come from angle based on time smoothly
-                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (ScoreManager.instance.TotalTimer * 60)%360));
+                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (ScoreManager.instance.totalTimer * 60)%360));
 
                     //spawn bullet straight through the middle
                     Instantiate(bullet, transform.right * -distance, transform.rotation);

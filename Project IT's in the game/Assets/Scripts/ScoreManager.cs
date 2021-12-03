@@ -12,7 +12,8 @@ public class ScoreManager : MonoBehaviour
 
     public int coins = 0;
     public int health = 5;
-    public float TotalTimer = 0;
+    public float totalTimer = 0;
+    public float arenaScale;
 
     private void Awake() {
         instance = this;
@@ -36,7 +37,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TotalTimer += Time.deltaTime;
-        TimerText.text = Mathf.Round(TotalTimer).ToString();
+        totalTimer += Time.deltaTime;
+        TimerText.text = Mathf.Round(totalTimer).ToString();
     }
 }

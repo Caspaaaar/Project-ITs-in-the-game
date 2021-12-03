@@ -8,7 +8,6 @@ public class CirkelScript : MonoBehaviour
     public float maxGrootte;
     public float minGrootte;
     public float stepTime;
-    private float currentScale;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,7 @@ public class CirkelScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentScale = Mathf.Clamp(stepTime + maxGrootte - (ScoreManager.instance.TotalTimer * shrinkRate), minGrootte, maxGrootte);
-        transform.localScale = new Vector3(currentScale, currentScale, 0);
+        ScoreManager.instance.arenaScale = Mathf.Clamp(stepTime + maxGrootte - (ScoreManager.instance.totalTimer * shrinkRate), minGrootte, maxGrootte);
+        transform.localScale = new Vector3(ScoreManager.instance.arenaScale, ScoreManager.instance.arenaScale, 1);
     }
 }

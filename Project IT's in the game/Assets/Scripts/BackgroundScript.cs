@@ -22,7 +22,7 @@ public class BackgroundScript : MonoBehaviour
 
         duration %= distance*2;
 
-        transform.position = transform.rotation * (Vector3.right * (duration - distance));
+        transform.position = transform.rotation * ((Vector3.right * (duration - distance)) + Vector3.forward);
 
 
     }
