@@ -8,7 +8,10 @@ public class GameOverScript : MonoBehaviour
     public GameObject gameOverMenu;
     public Text scoreText;
     public Text gameOverText;
+    public Text highscoreText;
     public bool cheated = false;
+    private bool highscore = false;
+    private float score;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +24,27 @@ public class GameOverScript : MonoBehaviour
     {
 
         gameOverMenu.SetActive(true);
-        
+
+        score = (Mathf.Round(ScoreManager.instance.TotalTimer * 10) / 10);
+
+        scoreText.text += score;
+        if(score > PlayerPrefs.GetFloat("highscore") && !cheated)
+        {
+            PlayerPrefs.SetFloat("highscore", score);
+            highscore = true;
+            highscoreText.enabled = false;
+        }
+        else
+        {
+            highscoreText.text += PlayerPrefs.GetFloat("highscore");
+        }
+
         changeMessage();
-        
-        scoreText.text += (Mathf.Round(ScoreManager.instance.TotalTimer * 10) / 10).ToString();
 
         //maybe play sound?
 
         PlayerPrefs.SetInt("coins", ScoreManager.instance.coins);
+        
     }
 
     public void changeMessage()
@@ -37,5 +53,15 @@ public class GameOverScript : MonoBehaviour
         {
             gameOverText.text = "Filthy Cheater!!!";
         }
+        else if (highscore)
+        {
+            gameOverText.text = "New highscore!!!";
+        }
+
+        //maybe create random different game over messages like
+
+        //game over, try again!
+        //haha noob, game over!!
+        // :D :D :D :(
     }
 }
