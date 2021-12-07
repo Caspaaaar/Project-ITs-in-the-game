@@ -36,15 +36,13 @@ public class ItemSpawnerScript : MonoBehaviour
             //decide what item gets dropped
             float result = Random.value * chanceSum;
             float temp = 0;
-            Debug.Log(result + " result");
             for (int i = 0; i < chances.Length; i++)
             {
                 temp += chances[i];
-                Debug.Log(temp + " temp");
 
                 if(result < temp)
                 {
-                    Debug.Log(i + " i");
+                    
                     item = items[i];
                     break;
                 }

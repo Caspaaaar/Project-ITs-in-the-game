@@ -12,9 +12,11 @@ public class TowerScript : MonoBehaviour
     private int[] indeces;
     private MeshFilter mf;
     public GameObject towerBase;
+    public GameObject cam;
 
     public float shrinkageModifier;
     private float shrinkage;
+    private float angle;
 
     // Start is called before the first frame update
     void Start()
@@ -46,12 +48,14 @@ public class TowerScript : MonoBehaviour
 
         shrinkage = (ScoreManager.instance.totalTimer * shrinkageModifier);
 
+        angle = (Mathf.Rad2Deg * Mathf.Atan2(cam.transform.position.y, cam.transform.position.x)) + 90;
+
         //tower section
         vertices = new Vector3[] {
-            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2,-shrinkage,0), new Vector3(0,0,0), new Vector3(0,0,0)),
-            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2,0 , 0), new Vector3(0,0,0), new Vector3(0,0,0)),
-            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2,0 ,0), new Vector3(0,0,0), new Vector3(0,0,0)),
-            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2,-shrinkage,0), new Vector3(0,0,0), new Vector3(0,0,0))
+            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2, -shrinkage,0), new Vector3(0,0,0), new Vector3(0,0,angle)),
+            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2, 0, 0), new Vector3(0,0,0), new Vector3(0,0,angle)),
+            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2, 0,0), new Vector3(0,0,0), new Vector3(0,0,angle)),
+            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2, -shrinkage,0), new Vector3(0,0,0), new Vector3(0,0,angle))
         };
 
         mesh.vertices = vertices;
@@ -63,6 +67,7 @@ public class TowerScript : MonoBehaviour
         //tower base section
         
         towerBase.transform.localScale = new Vector3(ScoreManager.instance.arenaScale, ScoreManager.instance.arenaScale, 1);
+        towerBase.transform.localPosition = RotatePointAroundPivot(new Vector3(0, -shrinkage, 0), new Vector3(0, 0, 0), new Vector3(0, 0, angle));
     }
 
     public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)

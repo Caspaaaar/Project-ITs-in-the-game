@@ -18,13 +18,13 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        try
+        if(player.activeSelf)
         {
             gameObject.transform.position = new Vector3(player.transform.position.x / Xparallax, player.transform.position.y / Yparallax, gameObject.transform.position.z);
         }
-        catch
+        else
         {
-            gameObject.transform.position = new Vector3(0, 0, gameObject.transform.position.z);
+            gameObject.transform.position = new Vector3(0, -1, gameObject.transform.position.z);
             Camera.main.orthographicSize = 15;
         }
     }
