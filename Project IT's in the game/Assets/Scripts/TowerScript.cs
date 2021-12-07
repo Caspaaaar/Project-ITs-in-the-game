@@ -48,10 +48,10 @@ public class TowerScript : MonoBehaviour
 
         //tower section
         vertices = new Vector3[] {
-            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2,0,0), new Vector3(0,0,0), new Vector3(0,0,30)),
-            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2,shrinkage, 0), new Vector3(0,0,0), new Vector3(0,0,30)),
-            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2,shrinkage,0), new Vector3(0,0,0), new Vector3(0,0,30)),
-            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2,0,0), new Vector3(0,0,0), new Vector3(0,0,30))
+            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2,-shrinkage,0), new Vector3(0,0,0), new Vector3(0,0,0)),
+            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2,0 , 0), new Vector3(0,0,0), new Vector3(0,0,0)),
+            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2,0 ,0), new Vector3(0,0,0), new Vector3(0,0,0)),
+            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2,-shrinkage,0), new Vector3(0,0,0), new Vector3(0,0,0))
         };
 
         mesh.vertices = vertices;
