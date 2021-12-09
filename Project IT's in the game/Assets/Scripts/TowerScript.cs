@@ -77,7 +77,7 @@ public class TowerScript : MonoBehaviour
 
         //tower base section
         
-        towerBase.transform.localScale = new Vector3(ScoreManager.instance.arenaScale / 2, ScoreManager.instance.arenaScale / 2, 1);
+        towerBase.transform.localScale = new Vector3(ScoreManager.instance.arenaScale, ScoreManager.instance.arenaScale, 1);
         towerBase.transform.localPosition = RotatePointAroundPivot(new Vector3(0, -distance, 0), new Vector3(0, 0, 0), new Vector3(0, 0, angle));
     }
 
