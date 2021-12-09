@@ -6,38 +6,23 @@ using UnityEngine.UI;
 public class BlinkingTextScript : MonoBehaviour
 {
 
-    public MaskableGraphic imageToToggle;
-
-    public float interval = 1f;
-    public float startDelay = 0.5f;
-    public bool currentState = true;
-    public bool defaultState = true;
-    bool isBlinking = false;
-
-    public AudioClip clip;
+    public float onTime = 1f;
+    public float offTime = 0.5f;
 
     void Start()
     {
-        imageToToggle.enabled = defaultState;
-        StartBlink();
+        InvokeRepeating("ToggleOn", 0, onTime + offTime);
+        InvokeRepeating("ToggleOff", onTime, offTime + onTime);
     }
 
-    public void StartBlink()
+    public void ToggleOn()
     {
-        // do not invoke the blink twice - needed if you need to start the blink from an external object
-        if (isBlinking)
-            return;
-
-        if (imageToToggle != null)
-        {
-            isBlinking = true;
-            InvokeRepeating("ToggleState", startDelay, interval);
-        }
+        gameObject.SetActive(true);
     }
 
-    public void ToggleState()
+    public void ToggleOff()
     {
-        imageToToggle.enabled = !imageToToggle.enabled;
+        gameObject.SetActive(false);
     }
 
 }

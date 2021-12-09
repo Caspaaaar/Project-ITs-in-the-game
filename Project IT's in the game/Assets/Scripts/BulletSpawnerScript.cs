@@ -62,7 +62,7 @@ public class BulletSpawnerScript : MonoBehaviour
                     break;
                 case 2:
                     //make bullet come from angle based on time smoothly
-                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (ScoreManager.instance.totalTimer * 60)%360));
+                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, (ScoreManager.instance.totalTimer * 120)%360));
 
                     //spawn bullet straight through the middle
                     Instantiate(bullet, transform.right * -distance, transform.rotation);
