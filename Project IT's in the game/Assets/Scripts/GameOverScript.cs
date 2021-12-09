@@ -9,6 +9,9 @@ public class GameOverScript : MonoBehaviour
     //public Text scoreText;
     //public Text gameOverText;
     //public Text highscoreText;
+    public GameObject messageCheated;
+    public GameObject messageHighscore;
+    public GameObject messageGameover;
     public bool cheated = false;
     private bool highscore = false;
     private float score;
@@ -39,7 +42,7 @@ public class GameOverScript : MonoBehaviour
             //highscoreText.text += PlayerPrefs.GetFloat("highscore");
         }
 
-        //changeMessage();
+        changeMessage();
 
         //maybe play sound?
 
@@ -47,21 +50,25 @@ public class GameOverScript : MonoBehaviour
         
     }
 
-    //public void changeMessage()
-    //{
-    //    if (cheated)
-    //    {
-    //        gameOverText.text = "Filthy Cheater!!!";
-    //    }
-    //    else if (highscore)
-    //    {
-    //        gameOverText.text = "New highscore!!!";
-    //    }
-    //
-    //    //maybe create random different game over messages like
-    //
-    //    //game over, try again!
-    //    //haha noob, game over!!
-    //    // :D :D :D :(
-    //}
+    public void changeMessage()
+    {
+        if (cheated)
+        {
+            messageCheated.SetActive(true);
+        }
+        else if (highscore)
+        {
+            messageHighscore.SetActive(true);
+        }
+        else
+        {
+            messageGameover.SetActive(true);
+        }
+    
+        //maybe create random different game over messages like
+    
+        //game over, try again!
+        //haha noob, game over!!
+        // :D :D :D :(
+    }
 }
