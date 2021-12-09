@@ -4353,6 +4353,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 810161481}
+  messageCheated: {fileID: 0}
+  messageHighscore: {fileID: 0}
+  messageGameover: {fileID: 0}
   cheated: 0
 --- !u!114 &935511972
 MonoBehaviour:
