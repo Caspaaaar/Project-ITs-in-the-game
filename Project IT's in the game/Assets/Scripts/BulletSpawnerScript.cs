@@ -9,12 +9,11 @@ public class BulletSpawnerScript : MonoBehaviour
     public GameObject bullet;
     public float fireRate;
     public float distance;
-    public float maxOffset;
     public float increaseTempo;
     private float duration;
 
     public int currentPattern = 1;
-    private readonly int patterns = 2;
+    private readonly int patterns = 3;
     public float cooldown;
     public float patternTime;
     private float patternCount = 0;
@@ -23,8 +22,6 @@ public class BulletSpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //dit is een deel van de berekening die zorgt dat de kogels meer langs het midden gaan
-        maxOffset = Mathf.Sqrt(maxOffset);
 
     }
 
@@ -57,7 +54,7 @@ public class BulletSpawnerScript : MonoBehaviour
                     gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360.0f)));
 
                     //create bullet with offset
-                    Instantiate(bullet, (transform.right * -distance) + (transform.up * Random.Range(-maxOffset, maxOffset) * Random.Range(-maxOffset, maxOffset)), gameObject.transform.rotation);
+                    Instantiate(bullet, (transform.right * -distance) + (transform.up * Random.Range(-ScoreManager.instance.arenaScale / 2, ScoreManager.instance.arenaScale / 2)), gameObject.transform.rotation);
 
                     break;
                 case 2:
@@ -77,7 +74,8 @@ public class BulletSpawnerScript : MonoBehaviour
                     Instantiate(bullet, (transform.right * -distance) + (transform.up * -ScoreManager.instance.arenaScale / 2), gameObject.transform.rotation);
                     Instantiate(bullet, (transform.right * -distance) + (transform.up * -ScoreManager.instance.arenaScale / 4), gameObject.transform.rotation);
 
-                    duration = -4;
+                    //small cooldown for sanity sake
+                    duration = -5;
                     break;
             }
 
