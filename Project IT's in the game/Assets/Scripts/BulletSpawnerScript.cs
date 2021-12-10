@@ -68,6 +68,17 @@ public class BulletSpawnerScript : MonoBehaviour
                     Instantiate(bullet, transform.right * -distance, transform.rotation);
 
                     break;
+                case 3:
+                    gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360.0f)));
+
+                    Instantiate(bullet, (transform.right * -distance) + (transform.up * ScoreManager.instance.arenaScale / 2), gameObject.transform.rotation);
+                    Instantiate(bullet, (transform.right * -distance) + (transform.up * ScoreManager.instance.arenaScale / 4), gameObject.transform.rotation);
+                    Instantiate(bullet, (transform.right * -distance) + (transform.up * 0), gameObject.transform.rotation);
+                    Instantiate(bullet, (transform.right * -distance) + (transform.up * -ScoreManager.instance.arenaScale / 2), gameObject.transform.rotation);
+                    Instantiate(bullet, (transform.right * -distance) + (transform.up * -ScoreManager.instance.arenaScale / 4), gameObject.transform.rotation);
+
+                    duration = -4;
+                    break;
             }
 
             
