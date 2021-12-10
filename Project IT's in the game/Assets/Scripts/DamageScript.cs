@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class DamageScript : MonoBehaviour
 {
-
-    public Text GameOverText;
-    public Text ScoreText;
     public string gameOverMessage;
     public string scoreMessage;
     public GameOverScript gameOverScript;
@@ -40,6 +37,10 @@ public class DamageScript : MonoBehaviour
         if(col.tag == "Arena")
         {
             ScoreManager.instance.health -= 2;
+        }
+        if(col.tag == "Heart")
+        {
+            ScoreManager.instance.health += 1;
         }
 
 

@@ -6,12 +6,9 @@ using UnityEngine.UI;
 public class GameOverScript : MonoBehaviour
 {
     public GameObject gameOverMenu;
-    //public Text scoreText;
-    //public Text gameOverText;
-    //public Text highscoreText;
-    public GameObject messageCheated;
-    public GameObject messageHighscore;
-    public GameObject messageGameover;
+    public Text scoreText;
+    public Text highscoreText;
+    public Text gameoverMessage;
     public bool cheated = false;
     private bool highscore = false;
     private float score;
@@ -30,16 +27,17 @@ public class GameOverScript : MonoBehaviour
 
         score = (Mathf.Round(ScoreManager.instance.totalTimer * 10) / 10);
 
-        //scoreText.text += score;
+        scoreText.text += score;
+
         if(score > PlayerPrefs.GetFloat("highscore") && !cheated)
         {
             PlayerPrefs.SetFloat("highscore", score);
             highscore = true;
-            //highscoreText.enabled = false;
+            highscoreText.enabled = false;
         }
         else
         {
-            //highscoreText.text += PlayerPrefs.GetFloat("highscore");
+            highscoreText.text += PlayerPrefs.GetFloat("highscore");
         }
 
         changeMessage();
@@ -54,15 +52,11 @@ public class GameOverScript : MonoBehaviour
     {
         if (cheated)
         {
-            messageCheated.SetActive(true);
+            gameoverMessage.text = "YOU FILTHY CHEATER";
         }
         else if (highscore)
         {
-            messageHighscore.SetActive(true);
-        }
-        else
-        {
-            messageGameover.SetActive(true);
+            gameoverMessage.text = "NEW HIGHSCORE";
         }
     
         //maybe create random different game over messages like
