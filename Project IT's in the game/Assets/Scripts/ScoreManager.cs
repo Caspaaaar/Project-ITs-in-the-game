@@ -23,7 +23,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         coins = PlayerPrefs.GetInt("coins");
-        scoreText.text = coins.ToString();
+        scoreText.text = coins.ToString() + "COINS";
 
         //compensation for damage on spawn
         health = health + 2;
@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddCoin() {
         coins += 1;
-        scoreText.text = coins.ToString();
+        scoreText.text = coins.ToString() + "COINS";
     }
 
     // Update is called once per frame
