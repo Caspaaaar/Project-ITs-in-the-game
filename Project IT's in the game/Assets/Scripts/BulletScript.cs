@@ -30,7 +30,7 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Player")
+        if(col.tag == "Player" || col.tag == "Shield")
         {
             Destroy(gameObject);
         }

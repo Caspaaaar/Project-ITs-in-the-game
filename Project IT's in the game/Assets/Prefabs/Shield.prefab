@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8925900445194044311}
   - component: {fileID: 8925900445194044304}
   - component: {fileID: 1552451660463479107}
-  - component: {fileID: 2245492307096882710}
+  - component: {fileID: -3266315220929970365}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: 13eb507457d12ff49991dbb61f0f959a, type: 3}
-  m_Color: {r: 0.04313727, g: 0.9636256, b: 0.972549, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0b49bde9c54e851438e8a700aff142bc, type: 3}
+  m_Color: {r: 0, g: 0.9148698, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2245492307096882710
+--- !u!114 &-3266315220929970365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,6 +109,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8925900445194044305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7150b4f85e4b040e9a047f6a91f8614a, type: 3}
+  m_Script: {fileID: 11500000, guid: 14d15d3b5be7a0c4090487c7d1da189b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

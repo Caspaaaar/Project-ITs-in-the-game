@@ -30,15 +30,15 @@ public class DamageScript : MonoBehaviour
         {
             ScoreManager.instance.health -= 1;
         }
-        if(col.tag == "Missle")
+        else if(col.tag == "Missle")
         {
             ScoreManager.instance.health -= 2;
         }
-        if(col.tag == "Arena")
+        else if(col.tag == "Arena")
         {
             ScoreManager.instance.health -= 2;
         }
-        if(col.tag == "Heart")
+        else if(col.tag == "Heart")
         {
             ScoreManager.instance.health += 1;
         }
@@ -53,6 +53,7 @@ public class DamageScript : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+
     }
 
 }
