@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = coins.ToString() + "COINS";
 
         //compensation for damage on spawn
+        health = PlayerPrefs.GetInt("startingHealth");
         health = health + 2;
     }
 

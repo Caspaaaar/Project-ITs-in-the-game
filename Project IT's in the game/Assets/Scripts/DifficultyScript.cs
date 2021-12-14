@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DifficultyScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
         
@@ -14,5 +14,17 @@ public class DifficultyScript : MonoBehaviour
     void Update()
     {
         
+    }
+    public void difficultyNoob()
+    {
+        PlayerPrefs.SetInt("startingHealth", 5);
+    }
+    public void difficultyNormal()
+    {
+        PlayerPrefs.SetInt("startingHealth", 3);
+    }
+    public void difficultyHard()
+    {
+        PlayerPrefs.SetInt("startingHealth", 1);
     }
 }
