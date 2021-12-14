@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour
 
     public int coins = 0;
     public int health = 5;
+    public int shield = 0;
     public float totalTimer = 0;
     public float arenaScale;
 
@@ -29,8 +30,8 @@ public class ScoreManager : MonoBehaviour
         health = health + 2;
     }
 
-    public void AddCoin() {
-        coins += 1;
+    public void AddCoins(int count) {
+        coins += count;
         scoreText.text = coins.ToString() + "COINS";
     }
 
