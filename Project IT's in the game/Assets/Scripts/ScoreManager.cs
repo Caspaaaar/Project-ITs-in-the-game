@@ -27,13 +27,14 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = coins.ToString() + "COINS";
 
         //get starting health on start
-        if (PlayerPrefs.GetInt("startingHealth") == 0)
+        if (PlayerPrefs.GetInt("startingHealth") != 0)
         {
-            health = 3;
+            health = PlayerPrefs.GetInt("startingHealth");
         }
         else
         {
-            health = PlayerPrefs.GetInt("startingHealth");
+            health = 3;
+            PlayerPrefs.SetInt("startingHealth", 3);
         }
 
         //compensation for damage on spawn
