@@ -290,7 +290,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AAAAAAA
+  m_Text: COINS
 --- !u!222 &46185167
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
   - {x: 1, y: 0, z: 0}
   towerBase: {fileID: 1514215768}
   cam: {fileID: 519420028}
-  shrinkageModifier: 0.1
+  shrinkTime: 50
 --- !u!23 &292798965
 MeshRenderer:
   m_ObjectHideFlags: 0

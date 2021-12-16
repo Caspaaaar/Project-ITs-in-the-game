@@ -14,10 +14,13 @@ public class TowerScript : MonoBehaviour
     public GameObject towerBase;
     public GameObject cam;
 
-    public float shrinkageModifier;
+    public float shrinkTime;
     private float shrinkage;
-    private float angle;
-    private float distance;
+    private float a;
+    private float d;
+
+    //https://www.youtube.com/watch?v=gNgIpyZ43oQ
+    //https://www.desmos.com/calculator/ejpbodhbos
 
     // Start is called before the first frame update
     void Start()
@@ -51,38 +54,54 @@ public class TowerScript : MonoBehaviour
     void Update()
     {
 
+        //mathy bit, copied from https://www.desmos.com/calculator/ejpbodhbos
 
-        //de face laat op het moment zn verkeerde kant zien waardoor hij doorzichtig is !!!
+        d = Mathf.Sqrt(Mathf.Pow(cam.transform.position.x, 2) + Mathf.Pow(cam.transform.position.y, 2));
 
 
-        shrinkage = (ScoreManager.instance.totalTimer * shrinkageModifier);
+        a = Mathf.Atan2(cam.transform.position.y, cam.transform.position.x);
 
-        angle = (Mathf.Rad2Deg * Mathf.Atan2(cam.transform.position.y, cam.transform.position.x)) + 90;
-        distance = Mathf.Sqrt(Mathf.Pow(cam.transform.position.x, 2) + Mathf.Pow(cam.transform.position.y, 2)) / 5;
+        //tower base section
 
+        shrinkage = Mathf.Clamp(shrinkTime/ ScoreManager.instance.totalTimer, 0, 1);
+        
+        towerBase.transform.localScale = new Vector3(ScoreManager.instance.arenaScale * shrinkage, ScoreManager.instance.arenaScale * shrinkage, 1);
+
+        d = d * .8f;
+
+        towerBase.transform.localPosition = Quaternion.Euler(new Vector3(0, 0, a * Mathf.Rad2Deg)) * new Vector3(d, 0, 0);
+
+        //defining vertices
+        Vector3 vertice1 = new Vector3(
+    (ScoreManager.instance.arenaScale / 2) * (Mathf.Cos(a - (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d)))),
+    (ScoreManager.instance.arenaScale / 2) * (Mathf.Sin(a - (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d)))),
+    0);                                                      
+        Vector3 vertice2 = new Vector3(                      
+    (ScoreManager.instance.arenaScale / 2) * (Mathf.Cos(a + (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d)))),
+    (ScoreManager.instance.arenaScale / 2) * (Mathf.Sin(a + (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d)))),
+    0);
+        Vector3 vertice3 = new Vector3(
+    ((towerBase.transform.localScale.x / 2) * (Mathf.Cos(a - (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d))))) + towerBase.transform.localPosition.x,
+    ((towerBase.transform.localScale.x / 2) * (Mathf.Sin(a - (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d))))) + towerBase.transform.localPosition.y,
+    0);
+        Vector3 vertice4 = new Vector3(
+    ((towerBase.transform.localScale.x / 2) * (Mathf.Cos(a + (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d))))) + towerBase.transform.localPosition.x,
+    ((towerBase.transform.localScale.x / 2) * (Mathf.Sin(a + (Mathf.Acos(((ScoreManager.instance.arenaScale / 2) - (towerBase.transform.localScale.x / 2)) / d))))) + towerBase.transform.localPosition.y,
+    0);
 
         //tower section 
         vertices = new Vector3[] {
-            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2, -distance, 0), new Vector3(0,0,0), new Vector3(0,0,angle)),
-            RotatePointAroundPivot(new Vector3(-ScoreManager.instance.arenaScale/2, 0, 0), new Vector3(0,0,0), new Vector3(0,0,angle)),
-            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2, 0,0), new Vector3(0,0,0), new Vector3(0,0,angle)),
-            RotatePointAroundPivot(new Vector3(ScoreManager.instance.arenaScale/2, -distance,0), new Vector3(0,0,0), new Vector3(0,0,angle))
+            vertice4,
+            vertice3,
+            vertice1,
+            vertice2,
         };
 
         mesh.vertices = vertices;
 
-        mesh.RecalculateBounds();
-        mesh.RecalculateNormals();
-        mesh.RecalculateTangents();
+        //mesh.RecalculateBounds();
+        //mesh.RecalculateNormals();
+        //mesh.RecalculateTangents();
 
-        //tower base section
-        
-        towerBase.transform.localScale = new Vector3(ScoreManager.instance.arenaScale, ScoreManager.instance.arenaScale, 1);
-        towerBase.transform.localPosition = RotatePointAroundPivot(new Vector3(0, -distance, 0), new Vector3(0, 0, 0), new Vector3(0, 0, angle));
-    }
-
-    public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Vector3 angles)
-    {
-        return Quaternion.Euler(angles) * (point - pivot) + pivot;
     }
 }
