@@ -26,8 +26,17 @@ public class ScoreManager : MonoBehaviour
         coins = PlayerPrefs.GetInt("coins");
         scoreText.text = coins.ToString() + "COINS";
 
+        //get starting health on start
+        if (PlayerPrefs.GetInt("startingHealth") == 0)
+        {
+            health = 3;
+        }
+        else
+        {
+            health = PlayerPrefs.GetInt("startingHealth");
+        }
+
         //compensation for damage on spawn
-        health = PlayerPrefs.GetInt("startingHealth");
         health = health + 2;
     }
 
