@@ -17,13 +17,11 @@ public class ShieldDamageScript : MonoBehaviour
         {
             ScoreManager.instance.shield -= 1;
         }
-        else if (col.tag == "Shield")
+
+
+        if (ScoreManager.instance.shield < 0)
         {
-            ScoreManager.instance.shield += 1;
-        }
-        else if (col.tag == "Heart")
-        {
-            ScoreManager.instance.health += 1;
+            ScoreManager.instance.shield = 0;
         }
 
     }
