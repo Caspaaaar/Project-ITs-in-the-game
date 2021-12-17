@@ -56,20 +56,20 @@ public class TowerScript : MonoBehaviour
 
         //mathy bit, copied from https://www.desmos.com/calculator/ejpbodhbos
 
-        d = Mathf.Sqrt(Mathf.Pow(cam.transform.position.x, 2) + Mathf.Pow(cam.transform.position.y, 2));
+        d = Mathf.Sqrt(Mathf.Pow(cam.transform.position.x, 2) + Mathf.Pow(cam.transform.position.y, 2)) * 0.5f + ((ScoreManager.instance.totalTimer) / 10);
 
 
         a = Mathf.Atan2(cam.transform.position.y, cam.transform.position.x);
 
         //tower base section
 
-        shrinkage = Mathf.Clamp(shrinkTime/ ScoreManager.instance.totalTimer, 0, 1);
-        
+        shrinkage = 0.9f - ((ScoreManager.instance.totalTimer) / 200);
+
         towerBase.transform.localScale = new Vector3(ScoreManager.instance.arenaScale * shrinkage, ScoreManager.instance.arenaScale * shrinkage, 1);
 
-        d = d * .8f;
-
         towerBase.transform.localPosition = Quaternion.Euler(new Vector3(0, 0, a * Mathf.Rad2Deg)) * new Vector3(d, 0, 0);
+
+
 
         //defining vertices
         Vector3 vertice1 = new Vector3(
