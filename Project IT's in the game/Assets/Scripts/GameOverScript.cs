@@ -22,7 +22,7 @@ public class GameOverScript : MonoBehaviour
     // Update is called once per frame
     public void GameOver()
     {
-
+        ScoreManager.instance.TimerText.enabled=false;
         gameOverMenu.SetActive(true);
 
         score = (Mathf.Round(ScoreManager.instance.totalTimer * 10) / 10);
