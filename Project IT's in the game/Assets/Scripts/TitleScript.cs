@@ -10,7 +10,8 @@ public class TitleScript : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            FadeScript.instance.LoadLevel("MainMenu");
         }
     }
 }

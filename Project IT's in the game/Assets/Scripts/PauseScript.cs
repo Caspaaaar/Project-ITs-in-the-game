@@ -46,7 +46,8 @@ public class PauseScript : MonoBehaviour
     {
         Resume();
 
-        SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene("MainMenu");
+        FadeScript.instance.LoadLevel("MainMenu");
 
     }
 
