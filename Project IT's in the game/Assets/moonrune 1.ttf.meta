@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ec2a36da309a67f47a32c95bbc782231
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - moonrune?
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5e6d627006a85e94bb375578f38e3afe, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

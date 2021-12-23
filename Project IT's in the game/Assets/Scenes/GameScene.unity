@@ -363,7 +363,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5e6d627006a85e94bb375578f38e3afe, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -1654,7 +1654,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2452,7 +2452,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 5e6d627006a85e94bb375578f38e3afe, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -3974,6 +3974,10 @@ PrefabInstance:
     - target: {fileID: 4360974403358965396, guid: 2297bb0b33ed6364ea285792573444f1, type: 3}
       propertyPath: m_Name
       value: FadeTransition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360974403358965396, guid: 2297bb0b33ed6364ea285792573444f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4360974403358965397, guid: 2297bb0b33ed6364ea285792573444f1, type: 3}
       propertyPath: m_Pivot.x
