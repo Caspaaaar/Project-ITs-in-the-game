@@ -14,12 +14,14 @@ public class MovementScript : MonoBehaviour
     public Sprite skinDiagonal;
     public GameObject skinHolder;
     private SpriteRenderer sr;
+    private Animator animator;
     
 
     // Start is called before the first frame update
     void Start()
     {
         sr = skinHolder.GetComponent<SpriteRenderer>();
+        animator = skinHolder.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,12 +54,19 @@ public class MovementScript : MonoBehaviour
 
 
         //skin rotation portion
-        if (y == 1 && x == 0)
+        if (y == 0 && x == 0)
+        {
+            animator.enabled = false;
+        }
+        else if (y == 1 && x == 0)
         {
             //straight up
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             sr.sprite = skinStraight;
             sr.flipX = true;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", false);
         }
         else if (y == 0 && x == 1)
         {
@@ -65,6 +74,9 @@ public class MovementScript : MonoBehaviour
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
             sr.sprite = skinStraight;
             sr.flipX = true;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", false);
         }
         else if (y == -1 && x == 0)
         {
@@ -72,6 +84,9 @@ public class MovementScript : MonoBehaviour
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
             sr.sprite = skinStraight;
             sr.flipX = true;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", false);
         }
         else if (y == 0 && x == -1)
         {
@@ -79,6 +94,9 @@ public class MovementScript : MonoBehaviour
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
             sr.sprite = skinStraight;
             sr.flipX = true;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", false);
         }
         else if (y == 1 && x == 1)
         {
@@ -86,6 +104,9 @@ public class MovementScript : MonoBehaviour
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             sr.sprite = skinDiagonal;
             sr.flipX = false;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", true);
         }
         else if (y == -1 && x == 1)
         {
@@ -93,6 +114,9 @@ public class MovementScript : MonoBehaviour
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
             sr.sprite = skinDiagonal;
             sr.flipX = false;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", true);
         }
         else if (y == -1 && x == -1)
         {
@@ -100,6 +124,9 @@ public class MovementScript : MonoBehaviour
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
             sr.sprite = skinDiagonal;
             sr.flipX = false;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", true);
         }
         else if (y == 1 && x == -1)
         {
@@ -107,7 +134,11 @@ public class MovementScript : MonoBehaviour
             skinHolder.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
             sr.sprite = skinDiagonal;
             sr.flipX = false;
+
+            animator.enabled = true;
+            animator.SetBool("diagonal", true);
         }
+
 
     }
 }
