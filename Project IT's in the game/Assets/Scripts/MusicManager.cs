@@ -5,20 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour
 {
-   
-    void Start()
+    void Awake()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
+        DontDestroyOnLoad(gameObject);
+        // add the callback method when scene loads
+        Debug.Log("yes");
+        SceneManager.sceneLoaded += OnSceneLoad;
+    }
 
-        if (currentScene.name != "GameScene")
-        {
-            
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+    void OnSceneLoad(Scene scene, LoadSceneMode mode)
+    {
+
+        if (scene.name == "GameScene")
         {
             // Stops playing music in level 1 scene
             Destroy(gameObject);
+
+            Debug.Log("no");
         }
 
     }
