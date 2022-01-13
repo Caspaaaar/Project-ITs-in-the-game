@@ -15,17 +15,13 @@ public class PauseAudio : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale > 0)
-            {
-                Time.timeScale = 0;
-                Camera.main.GetComponent<AudioSource>().Pause();
-            }
-            else
-            {
-                Time.timeScale = 1;
-                Camera.main.GetComponent<AudioSource>().UnPause();
-            }
+          gameObject.GetComponent<AudioSource>().Pause();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) || PauseScript.GameIsPaused == false)
+        {   
+        gameObject.GetComponent<AudioSource>().UnPause();
+        }
         }//input
 
     }//update
-}
+

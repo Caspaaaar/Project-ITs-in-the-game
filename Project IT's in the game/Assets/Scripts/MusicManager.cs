@@ -6,19 +6,20 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
    
-    void Awake()
+    void Start()
     {
-         Scene currentScene = SceneManager.GetActiveScene();
+        Scene currentScene = SceneManager.GetActiveScene();
 
-          if(FadeScript.instance.name == "GameScene")
-         {
-        //Stops playing intro audio in GameScene
-           Destroy(this.gameObject);
-         }
-         else 
-         {
-         DontDestroyOnLoad(this.gameObject);
-         }
+        if (currentScene.name != "GameScene")
+        {
+            // Stops playing music in level 1 scene
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
 
