@@ -13,6 +13,19 @@ public class PauseAudio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale > 0)
+            {
+                Time.timeScale = 0;
+                Camera.main.GetComponent<AudioSource>().Pause();
+            }
+            else
+            {
+                Time.timeScale = 1;
+                Camera.main.GetComponent<AudioSource>().UnPause();
+            }
+        }//input
+
+    }//update
 }
