@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameOverScript : MonoBehaviour
 {
     public GameObject gameOverMenu;
-    public Text scoreText;
-    public Text highscoreText;
-    public Text gameoverMessage;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highscoreText;
+    public TextMeshProUGUI gameoverMessage;
     public bool cheated = false;
     private bool highscore = false;
     private float score;
@@ -57,6 +58,21 @@ public class GameOverScript : MonoBehaviour
         else if (highscore)
         {
             gameoverMessage.text = "NEW HIGHSCORE";
+        }
+        else
+        {
+            switch (Random.Range(1, 4))
+            {
+                case 1:
+                    gameoverMessage.text = "GAME OVER, TRY AGAIN!";
+                    break;
+                case 2:
+                    gameoverMessage.text = "HAHA GG EZ NOOB";
+                    break;
+                case 3:
+                    gameoverMessage.text = "HAHAHAHAHAHAHA";
+                    break;
+            }
         }
     
         //maybe create random different game over messages like

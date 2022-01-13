@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
-    public Text scoreText;
-    public Text TimerText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI TimerText;
 
     public int coins = 0;
     public int health = 5;
@@ -24,7 +25,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         coins = PlayerPrefs.GetInt("coins");
-        scoreText.text = coins.ToString() + "COINS";
+        scoreText.text = coins.ToString() + " COINS";
 
         //get starting health on start
         if (PlayerPrefs.GetInt("startingHealth") != 0)
@@ -43,7 +44,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddCoins(int count) {
         coins += count;
-        scoreText.text = coins.ToString() + "COINS";
+        scoreText.text = coins.ToString() + " COINS";
     }
 
     // Update is called once per frame
