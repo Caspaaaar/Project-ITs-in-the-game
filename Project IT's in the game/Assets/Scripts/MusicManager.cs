@@ -12,11 +12,12 @@ public class MusicManager : MonoBehaviour
 
         if (currentScene.name != "GameScene")
         {
-            // Stops playing music in level 1 scene
+            
             DontDestroyOnLoad(gameObject);
         }
         else
         {
+            // Stops playing music in level 1 scene
             Destroy(gameObject);
         }
 
