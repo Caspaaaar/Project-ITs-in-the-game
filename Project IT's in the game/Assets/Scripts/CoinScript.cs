@@ -21,9 +21,28 @@ public class CoinScript : MonoBehaviour
         if(col.tag == "Player")
         {
             ScoreManager.instance.AddCoins(1);
-            Destroy(gameObject);
 
-            //put animation here
+            Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Arena")
+        {
+            StartCoroutine(shrink());
+        }
+    }
+
+    IEnumerator shrink()
+    {
+
+        for (float i = 1f; i >= 0; i -= 0.03f)
+        {
+            yield return new WaitForSeconds(0.01f);
+            gameObject.transform.localScale = new Vector3(i, i, 1);
+        }
+
+        Destroy(gameObject);
     }
 }
