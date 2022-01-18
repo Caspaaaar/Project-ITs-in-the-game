@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PauseScript : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    
+    public AudioSource backgroundMusic;
     public GameObject pauseMenuUI;
 
     void Update()
@@ -44,10 +44,12 @@ public class PauseScript : MonoBehaviour
 
     public void LoadMenu()
     {
+
         Resume();
 
         //SceneManager.LoadScene("MainMenu");
         FadeScript.instance.LoadLevel("MainMenu");
+        StartBackgroundMusic(true);
 
     }
 
@@ -64,5 +66,10 @@ public class PauseScript : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
         Resume();
+    }
+    public void StartBackgroundMusic(bool aRestart)
+    {
+        if (!backgroundMusic.isPlaying || aRestart)
+            backgroundMusic.Play();
     }
 }
