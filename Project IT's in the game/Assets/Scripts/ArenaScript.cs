@@ -6,11 +6,12 @@ public class ArenaScript : MonoBehaviour
 {
 
     public GameObject player;
+    private DamageScript damageScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        damageScript = player.GetComponent<DamageScript>();
     }
 
     // Update is called once per frame
@@ -18,7 +19,7 @@ public class ArenaScript : MonoBehaviour
     {
         if(col.tag == "Player")
         {
-            player.transform.localPosition = new Vector3(0, 0, 0);
+            damageScript.fall();
         }
     }
 }

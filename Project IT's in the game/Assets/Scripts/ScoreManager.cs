@@ -37,9 +37,6 @@ public class ScoreManager : MonoBehaviour
             health = 3;
             PlayerPrefs.SetInt("startingHealth", 3);
         }
-
-        //compensation for damage on spawn
-        health = health + 2;
     }
 
     public void AddCoins(int count) {
